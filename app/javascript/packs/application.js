@@ -21,7 +21,7 @@ import "bootstrap"
 import { Tooltip, Popover } from "bootstrap"
 
 // The stylesheet location we created earlier
-require("../stylesheets/application.scss")
+//require("../stylesheets/application.scss")
 
 // If you're using Turbolinks. Otherwise simply use: jQuery(function () {
 document.addEventListener("turbolinks:load", () => {
@@ -38,7 +38,12 @@ document.addEventListener("turbolinks:load", () => {
 })
 
 $(document).ready(function(){
-	$(document).on('change', '.comment-body', function(){
-		console.log($(this))
+	$(document).on('keyup', '#comment-body', function(){
+		if ($(this)[0].value.length > 0){
+			$('#add-comment-btn').show()
+		}
+		else{
+			$('#add-comment-btn').hide()
+		}
 	})
 })
