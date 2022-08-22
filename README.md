@@ -49,4 +49,14 @@ Things you may want to cover:
 	Second last Step is Comments It is a tricky part of this project for me which took more time than others.
 	Last Step is to apply validations as per need and unit testing.
 
+* Heroku Url
+	https://hulksappstest.herokuapp.com/
+
+	*User Credentials
+	email: vishukumar@gmail.com
+	password: 123456
+
+	email: vishwani@gmail.com
+	password: 123456
+
 * ...
