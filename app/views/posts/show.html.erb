@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div>
+    <h3><%= @post.title %></h3>
+    <p class="m-0 p-2"><%= @post.date %> (<%= @post.user.name %>)</p>
+  </div>
+  <div class="d-flex" style="width: 100%;">
+    <p style="font-size: 15px;"><%= @post.description.truncate(3500) %></p>
+  </div>
+  <%= form_for(@comment) do |form| %>
+    <%= form.hidden_field :post_id, value: @post.id %>
+    <div>
+      <%= form.label :body, 'Add Comment' %>
+      <%= form.text_area :body, class: 'form-control w-50' %>
+    </div>
+    <div class="actions mt-2">
+      <%= form.submit 'Add', class: 'btn btn-small btn-outline-warning' %>
+    </div>
+  <% end  %>
+  <strong><p class="m-0 p-0"><%= (@post.comments.count == 0) ? 'No Comments Yet' : "Toal Comments: #{@post.comments.count}" %></p></strong>
+  <% @comments.each do |comment| %>
+    <p><%= comment.body %></p>
+  <% end %>
+  <div>
+    <% if user_signed_in? && current_user.user_able_to_edit(@post) %>
+      <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary', style: 'color: white' %>
+    <% end%>
+    <% if user_signed_in? && current_user.user_able_to_delete(@post) %>
+      <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', style: 'color: white' %>
+    <% end %>
+  </div>
+</div>
