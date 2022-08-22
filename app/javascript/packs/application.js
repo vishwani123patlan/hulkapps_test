@@ -36,3 +36,9 @@ document.addEventListener("turbolinks:load", () => {
         return new Popover(popoverTriggerEl)
     })
 })
+
+$(document).ready(function(){
+	$(document).on('change', '.comment-body', function(){
+		console.log($(this))
+	})
+})

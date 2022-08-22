@@ -12,10 +12,10 @@
     <%= form.hidden_field :post_id, value: @post.id %>
     <div>
       <%= form.label :body, 'Add Comment' %>
-      <%= form.text_area :body, class: 'form-control w-50' %>
+      <%= form.text_area :body, class: 'form-control w-50 comment-body' %>
     </div>
     <div class="actions mt-2">
-      <%= form.submit 'Add', class: 'btn btn-small btn-outline-warning' %>
+      <%= form.submit 'Add', class: 'btn btn-small btn-outline-warning add-comment-btn' %>
     </div>
   <% end  %>
   <strong><p class="m-0 p-0"><%= (@post.comments.count == 0) ? 'No Comments Yet' : "Toal Comments: #{@post.comments.count}" %></p></strong>
